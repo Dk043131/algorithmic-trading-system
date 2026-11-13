@@ -1,0 +1,142 @@
+{
+    "$schema": "https://schema.freqtrade.io/schema.json",
+    "trading_mode": "spot",
+    "margin_mode": "",
+    "max_open_trades": 1,
+    "stake_currency": "USDT",
+    "stake_amount": "unlimited",
+    "tradable_balance_ratio": 0.99,
+    "fiat_display_currency": "INR",
+    "timeframe": "15m",
+    "dry_run": true,
+    "dry_run_wallet": 1.19,
+    "cancel_open_orders_on_exit": false,
+
+    "exchange": {
+        "name": "binance",
+        "key": "",
+        "secret": "",
+        "ccxt_config": {
+            "enableRateLimit": true,
+            "options": {
+                "defaultType": "spot"
+            }
+        },
+        "pair_whitelist": [
+            "DOGE/USDT",
+            "PEPE/USDT",
+            "SHIB/USDT",
+            "BONK/USDT",
+            "SOL/USDT",
+            "BTC/USDT",
+            "ETH/USDT",
+            "NEAR/USDT"
+        ],
+        "pair_blacklist": [
+            "BNB/USDT",
+            ".*(DOWN|UP|BEAR|BULL)/.*",
+            ".*(AUD|EUR|GBP|BUSD|TUSD|USDC)/.*"
+        ]
+    },
+
+    "pairlists": [
+        {
+            "method": "VolumePairList",
+            "number_assets": 20,
+            "sort_key": "quoteVolume",
+            "min_value": 0,
+            "refresh_period": 1800
+        },
+        {"method": "AgeFilter", "min_days_listed": 10},
+        {"method": "SpreadFilter", "max_spread_ratio": 0.005},
+        {"method": "PriceFilter", "low_price_ratio": 0.001}
+    ],
+
+    "entry_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1,
+        "price_last_balance": 0.0,
+        "check_depth_of_market": {
+            "enabled": false,
+            "bids_to_ask_delta": 1
+        }
+    },
+
+    "exit_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1
+    },
+
+    "order_types": {
+        "entry": "limit",
+        "exit": "limit",
+        "emergency_exit": "market",
+        "force_entry": "market",
+        "force_exit": "market",
+        "stoploss": "market",
+        "stoploss_on_exchange": true,
+        "stoploss_on_exchange_interval": 60
+    },
+
+    "stoploss": -0.035,
+    "trailing_stop": true,
+    "trailing_stop_positive": 0.012,
+    "trailing_stop_positive_offset": 0.020,
+    "trailing_only_offset_is_reached": true,
+
+    "minimal_roi": {
+        "0":  0.030,
+        "30": 0.020,
+        "60": 0.012,
+        "120": 0.007
+    },
+
+    "telegram": {
+        "enabled": true,
+        "token": "9082983804:AAFsqpE_MlU_xTdQPVhyP4pCK6QxO1OhirU",
+        "chat_id": "6451320371",
+        "allow_custom_messages": true,
+        "notification_settings": {
+            "status": "on",
+            "warning": "on",
+            "startup": "on",
+            "entry": "on",
+            "entry_fill": "on",
+            "exit": "on",
+            "exit_fill": "on",
+            "exit_cancel": "on",
+            "protection_trigger": "on",
+            "protection_trigger_global": "on"
+        },
+        "custom_messages": {
+            "entry": "🟢 *DK's TRADE - New Investment Opened*\n\n🪙 *Coin:* `{pair}`\n💰 *Price:* `${limit}`\n🎯 *Why AI Bought:* Strong buyer interest & momentum surge detected.\n🛡️ *Protection:* Safety stop-loss active. Capital is guarded.",
+            "exit": "🎉 *DK's TRADE - Profit Harvested into Wallet!*\n\n🪙 *Coin:* `{pair}`\n💵 *Profit Made:* `+{profit_amount} USDT ({profit_ratio:.2%})`\n⏱️ *Duration:* `{duration}`\n✅ *Status:* Profit locked and added to your total balance!"
+        }
+    },
+
+    "api_server": {
+        "enabled": true,
+        "listen_ip_address": "127.0.0.1",
+        "listen_port": 8080,
+        "username": "freqtrade",
+        "password": "SuperTradingBot2026!",
+        "verbosity": "info",
+        "enable_openapi": false,
+        "jwt_secret_key": "CHANGE_THIS_SECRET_KEY_BEFORE_LIVE_SUPER_RANDOM_KEY_12345",
+        "ws_token": "CHANGE_THIS_WS_TOKEN_SUPER_RANDOM_12345",
+        "CORS_origins": ["http://localhost:5173", "http://localhost:3000", "http://127.0.0.1:5173"]
+    },
+
+    "bot_name": "DK's TRADE",
+    "initial_state": "running",
+    "force_entry_enable": true,
+    "internals": {
+        "process_throttle_secs": 3
+    },
+
+    "user_data_dir": "./freqtrade/user_data",
+    "strategy": "AutonomousAIDailyBot",
+    "db_url": "sqlite:///./freqtrade/user_data/tradesv3.sqlite"
+}

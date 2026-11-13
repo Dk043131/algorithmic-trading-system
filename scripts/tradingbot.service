@@ -1,0 +1,19 @@
+[Unit]
+Description=24/7 Automated Crypto Trading Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/TRADING_BOT
+ExecStart=/root/TRADING_BOT/scripts/watchdog.sh
+Restart=always
+RestartSec=10
+KillMode=process
+TimeoutStopSec=30
+StandardOutput=append:/root/TRADING_BOT/freqtrade/user_data/logs/service.log
+StandardError=append:/root/TRADING_BOT/freqtrade/user_data/logs/service_err.log
+
+[Install]
+WantedBy=multi-user.target

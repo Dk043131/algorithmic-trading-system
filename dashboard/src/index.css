@@ -1,0 +1,49 @@
+/* ── Global Reset & Theme ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #0d0f14;
+  --surface:     #141720;
+  --surface2:    #1b1f2e;
+  --border:      #252a3a;
+  --text:        #e8eaf6;
+  --muted:       #6b7280;
+  --green:       #22c55e;
+  --green-dim:   #16a34a22;
+  --red:         #ef4444;
+  --red-dim:     #dc262622;
+  --yellow:      #eab308;
+  --yellow-dim:  #ca8a0422;
+  --blue:        #3b82f6;
+  --blue-dim:    #2563eb22;
+  --accent:      #6366f1;
+  --accent-glow: #6366f133;
+  --radius:      12px;
+  --radius-sm:   8px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+/* ── Animations ────────────────────────────────────────────────────────── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.92); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

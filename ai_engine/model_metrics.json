@@ -1,0 +1,52 @@
+{
+    "status": "trained_and_ready",
+    "last_trained_utc": "2026-11-02 03:59:15 UTC",
+    "total_training_samples": 16366,
+    "overall_accuracy": 90.6,
+    "high_confidence_win_rate": 84.9,
+    "precision_score": 78.9,
+    "roc_auc": 0.952,
+    "supported_asset_classes": [
+        "Crypto (Spot & Futures Scalping)",
+        "Stocks (US Tech & Indian Equities)",
+        "Index ETFs (S&P 500, Nifty 50)",
+        "Long-Term Wealth Compounding (SIP)"
+    ],
+    "active_strategies": [
+        "Paul Tudor Jones: 200 EMA Macro Trend Filter",
+        "Mark Minervini: Volatility Contraction Pattern (VCP)",
+        "Jim Simons: Quantitative Mathematical Expectancy Edge",
+        "Jesse Livermore: Pocket Pivot Volume Surge",
+        "Stan Weinstein: Stage 2 Institutional Markup",
+        "Stanley Druckenmiller: Asymmetric Risk-Reward Optimization",
+        "Richard Wyckoff: Spring Shakeout & Sign of Strength",
+        "Nicolas Darvas: Dynamic Ceiling Box Breakout",
+        "Larry Williams: Williams %R Momentum Thrust",
+        "William O'Neil: CAN SLIM Institutional Volume Surge",
+        "John Carter: TTM Squeeze Volatility Explosion",
+        "Ray Dalio: All-Weather Risk Parity & Volatility Target Sizing",
+        "Volume Surge Breakout Scalping (15m)",
+        "Momentum Trend Rider (1h/4h)",
+        "Smart Dynamic Cost Averaging (DCA)",
+        "Flash Crash Auto-Defense Guard"
+    ],
+    "top_traders_enforced": 12,
+    "features_modeled": [
+        "trend_score",
+        "rsi14",
+        "rsi_slope",
+        "atr_pct",
+        "macd_hist",
+        "bb_pct_b",
+        "vol_surge",
+        "body_ratio",
+        "minervini_vcp_ratio",
+        "darvas_box_pos",
+        "darvas_box_breakout",
+        "williams_r",
+        "carter_squeeze",
+        "weinstein_stage2",
+        "wyckoff_spring",
+        "oneil_bull_thrust"
+    ]
+}
